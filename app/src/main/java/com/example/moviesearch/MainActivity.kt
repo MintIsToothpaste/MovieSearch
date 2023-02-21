@@ -56,15 +56,6 @@ class MainActivity : AppCompatActivity() {
             viewModel.setCheck(-1)
         }
 
-        println("안녕${viewModel.getMovieName()}")
-        binding.movieNameEditText.setText(viewModel.getMovieName())
-
-        naverApi()
-
-        binding.recyclerView.adapter = MovieAdapter(viewModel)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.setHasFixedSize(true)
-
         // 검색 버튼
         binding.search.setOnClickListener {
 
@@ -123,7 +114,7 @@ class MainActivity : AppCompatActivity() {
                 //outputBy.text = "Retrofit with Coroutine"
                 //output.text = result
                 //viewModel.addItem(Item(result, result, result))
-                println("Success to execute request : $result")
+                //println("Success to execute request : $result")
             }
         }
     }
@@ -145,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 
     fun naverApi() {
         val text = URLEncoder.encode("${binding.movieNameEditText.text}", "UTF-8")
-        println(text)
+        //println(text)
         val url = URL("https://openapi.naver.com/v1/search/movie.json?query=${text}&display=10&start=1&genre=")
         val request = Request.Builder()
             .url(url)

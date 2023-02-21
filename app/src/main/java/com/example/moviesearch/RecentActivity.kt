@@ -22,7 +22,6 @@ class RecentActivity : AppCompatActivity() {
 
         searchDao = SearchDatabase.getDatabase(this).getSearchDao()
 
-        var recentSearch = ""
         var check = 0
         var first = ""
 
@@ -35,7 +34,7 @@ class RecentActivity : AppCompatActivity() {
                 check++
             }
             //searchDao.delete(Search(i.movieName))
-            //recentSearch += "${i.movieName}\n"
+
             check = when(check){
                 10 -> {
                     searchDao.delete(Search(first))
